@@ -7,9 +7,8 @@ import { connectDB } from "./database/index.js";
 import { GlobalError } from "./utils/GlobalError.js";
 
 dotenv.config({
-    path:"../.env"
+  path: "../.env",
 });
-
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -24,10 +23,9 @@ app.get("/", (req, res) => {
   });
 });
 
+app.use("/api/v1/auth", authRouter);
 
-app.use("/api/v1/auth",authRouter)
-
-app.use(GlobalError)
+app.use(GlobalError);
 connectDB()
   .then(() => {
     app.listen(PORT, () => {

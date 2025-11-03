@@ -55,14 +55,11 @@ All endpoints are prefixed with:
 ```json
 {
   "success": true,
-  "statusCode": 201,
+  "stausCode": 201,
   "data": {
-    "name": "user1",
-    "email": "user1@gmail.com",
-    "password": "$2b$10$rcOqvxpgCJHJGbYwQvNrd.FXKQLhhMmZ//rFxsbDEISTQTnM6MlAS",
-    "role": "user",
-    "_id": "690854e425f542323f3a5ab7",
-    "__v": 0
+    "_id": "690868977473bfad4b964592",
+    "name": "manu55",
+    "email": "manu55@gmail.com"
   },
   "message": "User registered successfully"
 }
@@ -158,5 +155,3 @@ All endpoints are prefixed with:
 ```
 
 ---
-
-If you need the README tailored for a specific repository name, CI setup, or deployment instructions, provide the details and it will be adjusted accordingly.

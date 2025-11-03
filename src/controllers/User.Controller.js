@@ -28,9 +28,15 @@ export const registerUser = AsyncHandler(async (req, res) => {
     password,
   });
 
+  const data = {
+    _id: user._id,
+    name: user.name,
+    email: user.email,
+  }
+  
   res
     .status(201)
-    .json(new ApiSuccess(201, user, "User registered successfully"));
+    .json(new ApiSuccess(201, data, "User registered successfully"));
 });
 
 export const loginUser = AsyncHandler(async (req, res) => {
@@ -68,7 +74,7 @@ export const loginUser = AsyncHandler(async (req, res) => {
   res
     .cookie("accessToken", accessToken, options)
     .cookie("refreshToken", refreshToken, options)
-    .status(201)
+    .status(200)
     .json(new ApiSuccess(201, user, "User loggedin successfully"));
 });
 
@@ -137,4 +143,12 @@ export const adminProfile = AsyncHandler(async (req, res) => {
     .json(
       new ApiSuccess(200, existingUser, "User profile fetched successfully")
     );
+});
+
+export const logout = AsyncHandler(async (req, res) => {
+  res
+    .clearCookie("accessToken")
+    .clearCookie("refreshToken")
+    .status(200)
+    .json(new ApiSuccess(200, null, "Logged out successfully"));
 });

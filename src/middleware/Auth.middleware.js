@@ -24,7 +24,7 @@ export const verifyAdmin = AsyncHandler(async(req,res,next)=>{
     const user = req.user;
 
     if(user.role !== "admin"){
-        throw new ApiError(401,"Un-Authorized access")
+        throw new ApiError(403,"Forbidden")
     }
     next();
 })
